@@ -1,28 +1,50 @@
-# Speed Dating Match Prediction
+# Speed Dating Recommendation System
 
-This project aims to predict the outcome of speed dating sessions based on the profiles of two individuals. The goal is to implement a recommendation system to better match people in speed dating events. The dataset used for this project is clean, but it contains a significant number of missing values. The strategy for missing value replacement needs to be tuned. Additionally, the dataset is highly unbalanced, with the majority of sessions resulting in no match.
+## Problem Formulation:
 
-## Problem Formulation
+### Input:
+The dataset comprises detailed information about participants in speed dating events, encompassing personal details, survey responses, partner information, and post-event feedback.
 
-**Input**: Information about a speed dating session, including the profiles of two people.
+### Output:
+The objective is to predict the probability (0-1) of a successful match in a speed dating session.
 
-**Output**: Probability (0-1) that the dating session will lead to a successful match.
+### Data Mining Function:
+Binary classification is employed to determine the likelihood of a successful match.
 
-**Data Mining Function**: Binary classification to predict the probability of a successful match.
+### Challenges:
+1. **Missing Values:** Develop a strategy for handling missing data.
+2. **Class Imbalance:** Address the imbalance between matched and unmatched instances.
+3. **Hyperparameter Tuning:** Optimize the model's performance through systematic hyperparameter search.
 
-**Challenges**: 
-1. Handling missing values: The dataset has a lot of missing values, and an appropriate strategy for replacement needs to be determined.
-2. Imbalanced dataset: The dataset is highly unbalanced, with a majority of unmatched sessions. This can lead to biased models that favor the majority class.
-3. Feature selection: Choosing the most relevant features from the profiles to improve prediction accuracy.
+## Impact:
+The recommendation system aims to enhance the speed dating experience, providing more successful matches and increasing participant satisfaction.
 
-**Impact**: By accurately predicting the outcome of speed dating sessions, we can develop a recommendation system that improves the matching process and increases the likelihood of successful matches. This can enhance the overall experience for participants and potentially lead to more meaningful connections.
+## Ideal Solution:
+A robust predictive model that accurately identifies the probability of a successful match, leveraging a well-defined feature set and effective preprocessing techniques.
 
-**Ideal Solution**: An ideal solution would involve developing a machine learning pipeline that preprocesses the data, handles missing values effectively, selects informative features, trains a classification model, and optimizes the model's hyperparameters to achieve the best performance.
+---
 
-## Code Documentation
+# Model Tuning and Documentation
 
-The code for this project should be properly documented with detailed comments to demonstrate understanding and clarity. Each step of the code should be explained, including the experimental protocol used and the preprocessing steps performed. This documentation will help others understand the code and replicate the workflow.
+## Trial 0: Random Forest
+- **Observations:** Achieved a best score of 85.36%. Identified optimal hyperparameters.
 
-## Model Tuning and Documentation
+## Trial 1: Decision Tree
+- **Observations:** Achieved a best score of 81.55%. Identified optimal hyperparameters.
 
-To improve the model's performance, a data science lifecycle approach should be followed. Different features, hyperparameters, configurations, and even models should be explored. Each trial should be well-documented, including the reasoning behind the changes made, the expected outcomes, the observed performance, and thoughts on the results. The aim is to document the entire thought process and decision-making behind the trials, which will help in understanding the iterative improvements and overcoming challenges.
+## Trial 2: Bayesian Search - XGBoost
+- **Observations:** Achieved a best score of 87.73%. Bayesian search demonstrated superior performance.
+
+## Trial 3: Random Search - Decision Tree
+- **Observations:** Achieved a best score of 81.59%. Random search performed comparably to grid search.
+
+## Trial 4: XGBoost - Second Iteration
+- **Observations:** Achieved a best score of 87.51%. Refined hyperparameters for improved performance.
+
+---
+
+# Conclusion
+
+- Explored different models and hyperparameter tuning methods.
+- Bayesian search with XGBoost showed the highest performance.
+- The process documented for reproducibility and future reference.
